@@ -25,19 +25,14 @@
         }
 
         function pokepesquisa() {
-            if (pokescolha == "") { /*typeof para ver o tipo*/
-                alert("Por favor, digite o nome ou o número do Pokemon desejado no campo.")
-            } else {
-                const pokebuscar = document.getElementById('pokescolha').value
-                console.log(pokebuscar)
-
-                fetch('https://pokeapi.co/api/v2/pokemon/' + pokebuscar)
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log(data)
-                        preencherTela(data)
-                    })
-            }
+            const pokebuscar = document.getElementById('pokescolha').value
+            console.log(pokebuscar)
+            fetch('https://pokeapi.co/api/v2/pokemon/' + pokebuscar)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    preencherTela(data)
+            })
         }
         const pokescolha = document.getElementById('pokescolha').value;
         pokebotao.addEventListener("click", pokepesquisa);
